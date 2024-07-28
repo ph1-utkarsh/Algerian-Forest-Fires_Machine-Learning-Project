@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FWI Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+
+<body>
+    <div class="container">
+        <h1>FWI Prediction</h1>
+        {% if results %}
+        <div class="result">The FWI prediction is {{ results }}</div>
+        {% endif %}
+        <form action="{{ url_for('predict_datapoint') }}" method="POST">
+            <input type="number" name="Temperature" placeholder="Temperature" required>
+            <input type="number" name="RH" placeholder="RH" required>
+            <input type="number" name="Ws" placeholder="Ws" required>
+            <input type="number" name="Rain" placeholder="Rain" required>
+            <input type="number" name="FFMC" placeholder="FFMC" required>
+            <input type="number" name="DMC" placeholder="DMC" required>
+            <input type="number" name="ISI" placeholder="ISI" required>
+            <input type="number" name="Classes" placeholder="Classes" required>
+            <input type="number" name="Region" placeholder="Region" required>
+            <button type="submit">Predict</button>
+        </form>
+    </div>
+</body>
+
+</html>
